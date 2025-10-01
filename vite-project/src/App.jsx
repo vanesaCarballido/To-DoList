@@ -14,9 +14,9 @@ export default function App() {
 
 function AppContent() {
   const listaInicial = [
-    { id: 1, text: "Estudiar React", priority: "high", completed: false },
-    { id: 2, text: "Comprar comida", priority: "medium", completed: true },
-    { id: 3, text: "Ir al gimnasio", priority: "low", completed: false },
+    { id: 1, text: "Estudiar React", priority: "alta", completed: false },
+    { id: 2, text: "Comprar comida", priority: "media", completed: true },
+    { id: 3, text: "Ir al gimnasio", priority: "baja", completed: false },
   ];
 
   const [todos, setTodos] = useState(listaInicial);
