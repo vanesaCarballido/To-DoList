@@ -1,26 +1,33 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
-function TaskForm({handleAdd}) {
+function TaskForm({ handleAdd }) {
+  const taskName = useRef(null);
+  const [priority, setPriority] = useState('baja');
 
-    const taskInput = useRef('');
+  function handleClick(event) {
+    event.preventDefault(); 
+    handleAdd(taskName.current.value, priority); 
+    taskName.current.value = ''; 
+    taskName.current.focus();
+    setPriority('baja'); 
+  }
 
-    function handeClick(event) {
-        event.preventDefault(); 
-        handleAdd(taskInput.current); 
-        taskInput.current = ''; 
-        taskInput.current.focus();
-    }
+  return (
+    <div className="formulario">
+      <form>
+        <label>Ingrese la tarea:</label>
+        <input ref={taskName} type="text" required />
 
-    return (
-        <div className="formulario">
-            <form>
-                <label>Ingrese la tarea:</label>
-                <input ref={taskInput} type="text" required></input>
-                <button onClick={handeClick} type="submit">Agregar</button>
-            </form>
-        </div>
-    )
+        <label>Elija la prioridad:</label>
+        <select value={priority} onChange={e => setPriority(e.target.value)}>
+          <option value="baja">Baja</option>
+          <option value="alta">Alta</option>
+        </select>
+
+        <button onClick={handleClick} type="submit">Agregar</button>
+      </form>
+    </div>
+  );
 }
 
 export { TaskForm };
-
