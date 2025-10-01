@@ -2,12 +2,12 @@ import React, { useMemo } from "react";
 
 function TaskItem ({ task, onComplete, onDelete}){ 
     return ( 
-        <div className="taskTextButton">
+        <div className="taskItem">
             {task.text}
+            {task.priority}
             <span>
                 <button onClick={()=> onComplete(task.id)}>Completada</button>
                 <button onClick={()=> onDelete(task.id)}>Borrar</button>
-                {task.priority}
             </span>
         </div>
     )
