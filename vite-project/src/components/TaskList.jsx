@@ -19,7 +19,7 @@ function TaskList({ todos, onComplete, onDelete }) {
 
       <h3>Tareas:</h3>
       <ul>
-        {highPriorityTasks.map(task => (
+        {todos.map(task => (
           <TaskItem 
             key={task.id} 
             task={task} 

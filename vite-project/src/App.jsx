@@ -56,18 +56,17 @@ function AppContent() {
   return (
     <div>
       <ThemeContext.Provider value={themeSettings}>
-      <div className={"App-" + themeSettings.mode}>
-        <ButtonContext />
-        <MySwitch />
-      </div>
+        <div className={"App-" + themeSettings.mode}>
+          <ButtonContext />
+          <MySwitch />
+          <TaskForm handleAdd={handleAdd} />
+          <TaskList 
+            todos={todos} 
+            onComplete={handleComplete} 
+            onDelete={handleDelete} 
+          />
+        </div>
       </ThemeContext.Provider>
-
-      <TaskForm handleAdd={handleAdd} />
-      <TaskList 
-        todos={todos} 
-        onComplete={handleComplete} 
-        onDelete={handleDelete} 
-      />
     </div>
   );
 }
