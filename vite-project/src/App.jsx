@@ -1,6 +1,5 @@
 import { useState, useCallback, useContext } from 'react';
 import TaskList from './components/TaskList.jsx';
-import ButtonContext from './components/ButtonContext/ButtonContext.jsx';
 import MySwitch from './components/Switch/switch.jsx';
 import { ThemeContext } from './contexts/context.jsx';
 import './App.css';
@@ -57,7 +56,6 @@ function AppContent() {
     <div>
       <ThemeContext.Provider value={themeSettings}>
         <div className={"App-" + themeSettings.mode}>
-          <ButtonContext />
           <MySwitch />
           <TaskForm handleAdd={handleAdd} />
           <TaskList 
