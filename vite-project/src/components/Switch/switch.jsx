@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
-import { ThemeContext } from "../../contexts";
-import Switch from "react-switch";
+import { ThemeContext } from "../../contexts/context.jsx";
+import Switch from "react";
 
 const MySwitch = () => {
   const themeSettings = useContext(ThemeContext);

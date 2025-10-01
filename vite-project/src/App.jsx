@@ -57,7 +57,7 @@ function AppContent() {
     <div>
       <ThemeContext.Provider value={themeSettings}>
       <div className={"App-" + themeSettings.mode}>
-        <Button />
+        <ButtonContext />
         <MySwitch />
       </div>
       </ThemeContext.Provider>
