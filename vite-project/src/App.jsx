@@ -1,17 +1,48 @@
-import { useState } from 'react';
-import { createTodos } from './components/utils.jsx';
-import TodoList from './components/TaskList.jsx';
+import { useState, useCallback, useContext } from 'react';
+import TaskList from './components/TaskList.jsx';
 import ButtonContext from './components/ButtonContext/ButtonContext.jsx';
 import MySwitch from './components/Switch/switch.jsx';
 import { ThemeContext } from './contexts/context.jsx';
 import './App.css';
 
-
-const todos = createTodos();
+import { TaskForm } from './components/TaskForm.jsx';
 
 export default function App() {
-  const [tab, setTab] = useState('all');
-  const [isDark, setIsDark] = useState(false);
+  return (
+      <AppContent />
+  );
+}
+
+function AppContent() {
+  const listaInicial = [
+    { id: 1, text: "Estudiar React", priority: "high", completed: false },
+    { id: 2, text: "Comprar comida", priority: "medium", completed: true },
+    { id: 3, text: "Ir al gimnasio", priority: "low", completed: false },
+  ];
+
+  const [todos, setTodos] = useState(listaInicial);
+
+  const handleAdd = useCallback((text, priority) => {
+    const newTodo = {
+      id: todos.length + 1,
+      text,
+      priority,
+      completed: false
+    };
+    setTodos([...todos, newTodo]);
+  }, [todos]);
+
+
+  const handleComplete = useCallback((id) => {
+    setTodos(todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+  }, [todos]);
+
+
+  const handleDelete = useCallback((id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  }, [todos]);
+
+
   const [themeSettings, setThemeSettings] = useState({
     mode: "light",
     switchMode: () => {
@@ -23,7 +54,7 @@ export default function App() {
   });
 
   return (
-    <>
+    <div>
       <ThemeContext.Provider value={themeSettings}>
       <div className={"App-" + themeSettings.mode}>
         <Button />
@@ -31,12 +62,12 @@ export default function App() {
       </div>
       </ThemeContext.Provider>
 
-      <TodoList
-        todos={todos}
-        tab={tab}
-        theme={isDark ? 'dark' : 'light'}
+      <TaskForm handleAdd={handleAdd} />
+      <TaskList 
+        todos={todos} 
+        onComplete={handleComplete} 
+        onDelete={handleDelete} 
       />
-    </>
+    </div>
   );
 }
-
