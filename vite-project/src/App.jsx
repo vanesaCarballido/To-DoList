@@ -24,18 +24,19 @@ export default function App() {
 
   return (
     <>
-      <TodoList
-        todos={todos}
-        tab={tab}
-        theme={isDark ? 'dark' : 'light'}
-      />
-
       <ThemeContext.Provider value={themeSettings}>
       <div className={"App-" + themeSettings.mode}>
         <Button />
         <MySwitch />
       </div>
       </ThemeContext.Provider>
+      <TodoList
+        todos={todos}
+        tab={tab}
+        theme={isDark ? 'dark' : 'light'}
+      />
+
+      
     </>
   );
 }
