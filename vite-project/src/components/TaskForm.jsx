@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 
 function TaskForm({ handleAdd }) {
   const taskName = useRef(null);
-  const [priority, setPriority] = useState('low');
+  const [priority, setPriority] = useState('baja');
 
   useEffect(() => {
     taskName.current.focus();
@@ -12,7 +12,7 @@ function TaskForm({ handleAdd }) {
     event.preventDefault();
     handleAdd(taskName.current.value, priority);
     taskName.current.value = '';
-    setPriority('low');
+    setPriority('baja');
     taskName.current.focus();
   }
 
@@ -23,9 +23,9 @@ function TaskForm({ handleAdd }) {
         <input ref={taskName} type="text"/>
         <label>Prioridad:</label>
         <select value={priority} onChange={e => setPriority(e.target.value)}>
-          <option value="low">Baja</option>
-          <option value="medium">Media</option>
-          <option value="high">Alta</option>
+          <option value="baja">Baja</option>
+          <option value="media">Media</option>
+          <option value="alta">Alta</option>
         </select>
         <button onClick={handleClick} type="submit">Agregar</button>
       </form>

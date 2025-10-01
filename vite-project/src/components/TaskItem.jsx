@@ -4,7 +4,7 @@ function TaskItem({ task, onComplete, onDelete }) {
   
   return (
     <li className="taskItem">
-      {task.text} ({task.priority})
+      <strong>{task.text}</strong> (prioridad: {task.priority})
       <span>
         <button onClick={() => onComplete(task.id)}>{task.completed ? '⟳' : '✓'}</button>
         <button onClick={() => onDelete(task.id)}>Borrar</button>
