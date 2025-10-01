@@ -1,0 +1,23 @@
+@import url("../../global.css");
+
+.primary-light {
+  width: 100px;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  color: white;
+  border-radius: 8px;
+  background-color: var(--primary-light-green);
+  cursor: pointer;
+  margin: 1rem 0rem;
+}
+
+.primary-dark {
+  width: 100px;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  color: white;
+  border-radius: 8px;
+  background-color: var(--secondary-cool-iris);
+  cursor: pointer;
+  margin: 1rem 0rem;
+}

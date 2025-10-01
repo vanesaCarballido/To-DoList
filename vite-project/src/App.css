@@ -1,3 +1,21 @@
+.App-light {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App-dark {
+  background-color: rgb(4, 4, 4);
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
