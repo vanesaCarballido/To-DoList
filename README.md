@@ -7,44 +7,44 @@ El objetivo es construir una To-Do List con funcionalidades que requieran el uso
 # Requisitos de la Aplicación
 Estructura Base:
 
-Un componente padre llamado App.jsx.
+- Un componente padre llamado App.jsx.
 
-Un componente para la lista de tareas (TaskList.jsx).
+- Un componente para la lista de tareas (TaskList.jsx).
 
-Un componente individual para cada tarea (TaskItem.jsx).
+- Un componente individual para cada tarea (TaskItem.jsx).
 
-Un formulario para agregar nuevas tareas (TaskForm.jsx).
+- Un formulario para agregar nuevas tareas (TaskForm.jsx).
 
 Funcionalidades de la Lista:
 
-Agregar nuevas tareas.
+- Agregar nuevas tareas.
 
-Marcar tareas como completadas.
+- Marcar tareas como completadas.
 
-Eliminar tareas.
+- Eliminar tareas.
 
 # Implementación de los Hooks (El Desafío)
 Los estudiantes deben aplicar los siguientes hooks en las áreas específicas para optimizar la aplicación:
 
-# -useMemo:
+- useMemo:
 
 El Reto: La lista de tareas debe tener un "filtro de alta prioridad" y, además, mostrar un "conteo de tareas pendientes". El cálculo de este conteo y la lista filtrada pueden ser costosos si la lista de tareas es muy larga.
 
 Aplicación: Usar useMemo para memorizar el resultado del filtrado y el cálculo del conteo de tareas pendientes. De esta forma, solo se volverán a calcular cuando la lista de tareas (toDos) cambie, y no en cada re-renderización del componente.
 
-# -useCallback:
+- useCallback:
 
 El Reto: El componente TaskItem.jsx (la tarea individual) es un componente "tonto" que solo recibe props. Queremos que este componente solo se re-renderice si sus propias props cambian. Las funciones handleComplete y handleDelete se pasan como props desde el componente padre.
 
 Aplicación: Envolver las funciones handleComplete y handleDelete en el componente padre con useCallback. Esto asegura que estas funciones mantengan su referencia y no se vuelvan a crear en cada renderización del padre, lo que previene re-renderizaciones innecesarias de cada TaskItem (si se usa React.memo en TaskItem).
 
-# -useRef:
+- useRef:
 
 El Reto: Cuando el usuario agrega una nueva tarea, el campo de entrada del formulario (<input>) debe enfocarse automáticamente para que el usuario pueda escribir de inmediato la siguiente tarea.
 
 Aplicación: Usar useRef para obtener una referencia al elemento del DOM (<input>) y, dentro de un useEffect con la dependencia adecuada, llamar al método .focus().
 
-# -Context:
+- Context:
 
 El Reto: La aplicación necesita un "modo de visualización" (compacto o detallado) que se pueda activar desde un interruptor en el encabezado. Este modo debe afectar el estilo de todas las tareas en la lista. Pasar la prop displayMode a cada componente a través de la jerarquía sería ineficiente.
 
