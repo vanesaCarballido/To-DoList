@@ -13,17 +13,15 @@ function TaskForm({ handleAdd }) {
   }
 
   return (
-    <div className="formulario">
+    <div className="taskForm">
       <form>
         <label>Ingrese la tarea:</label>
         <input ref={taskName} type="text" required />
-
         <label>Elija la prioridad:</label>
         <select value={priority} onChange={e => setPriority(e.target.value)}>
           <option value="baja">Baja</option>
           <option value="alta">Alta</option>
         </select>
-
         <button onClick={handleClick} type="submit">Agregar</button>
       </form>
     </div>
@@ -31,3 +29,4 @@ function TaskForm({ handleAdd }) {
 }
 
 export { TaskForm };
+
