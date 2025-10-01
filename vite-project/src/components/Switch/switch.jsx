@@ -1,20 +1,20 @@
 import React from "react";
 import { useContext } from "react";
-import { ThemeContext } from "../../contexts/context.jsx";
+import { DisplayModeContext } from "../../contexts/context.jsx";
 
 const MySwitch = () => {
-  const themeSettings = useContext(ThemeContext);
+  const displayModeSettings = useContext(DisplayModeContext);
 
   return (
     <label>
       <input
         type="checkbox"
         onChange={() => {
-          themeSettings.switchMode();
+          displayModeSettings.switchMode();
         }}
-        checked={themeSettings.mode === "dark"}
+        checked={displayModeSettings.mode === "dark"}
       />
-      {themeSettings.mode === "dark" ? "Modo Oscuro" : "Modo Claro"}
+      {displayModeSettings.mode === "dark" ? "Modo Oscuro" : "Modo Claro"}
     </label>
   );
 };

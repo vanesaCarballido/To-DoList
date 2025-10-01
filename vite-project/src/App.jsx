@@ -1,7 +1,7 @@
 import { useState, useCallback, useContext } from 'react';
 import TaskList from './components/TaskList.jsx';
 import MySwitch from './components/Switch/switch.jsx';
-import { ThemeContext } from './contexts/context.jsx';
+import { DisplayModeContext } from './contexts/context.jsx';
 import './App.css';
 
 import { TaskForm } from './components/TaskForm.jsx';
@@ -42,7 +42,7 @@ function AppContent() {
   }, [todos]);
 
 
-  const [themeSettings, setThemeSettings] = useState({
+  const [displayModeSettings, setThemeSettings] = useState({
     mode: "light",
     switchMode: () => {
       setThemeSettings((prevState) => ({
@@ -54,8 +54,8 @@ function AppContent() {
 
   return (
     <div>
-      <ThemeContext.Provider value={themeSettings}>
-        <div className={"App-" + themeSettings.mode}>
+      <DisplayModeContext.Provider value={displayModeSettings}>
+        <div className={"App-" + displayModeSettings.mode}>
           <MySwitch />
           <TaskForm handleAdd={handleAdd} />
           <TaskList 
@@ -64,7 +64,7 @@ function AppContent() {
             onDelete={handleDelete} 
           />
         </div>
-      </ThemeContext.Provider>
+      </DisplayModeContext.Provider>
     </div>
   );
 }
