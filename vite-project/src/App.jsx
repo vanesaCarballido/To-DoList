@@ -30,13 +30,12 @@ export default function App() {
         <MySwitch />
       </div>
       </ThemeContext.Provider>
+
       <TodoList
         todos={todos}
         tab={tab}
         theme={isDark ? 'dark' : 'light'}
       />
-
-      
     </>
   );
 }
