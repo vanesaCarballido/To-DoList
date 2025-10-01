@@ -1,16 +1,16 @@
-import React, { useMemo } from "react";
+import React, { useContext } from 'react';
 
-function TaskItem ({ task, onComplete, onDelete}){ 
-    return ( 
-        <div className="taskTextButton">
-            {task.text}
-            <span>
-                <button onClick={()=> onComplete(task.id)}>Completada</button>
-                <button onClick={()=> onDelete(task.id)}>Borrar</button>
-                {task.priority}
-            </span>
-        </div>
-    )
-};
+function TaskItem({ task, onComplete, onDelete }) {
+  
+  return (
+    <li className="taskItem">
+      <strong>{task.text}</strong> (prioridad: {task.priority})
+      <span>
+        <button onClick={() => onComplete(task.id)}>{task.completed ? '⟳' : '✓'}</button>
+        <button onClick={() => onDelete(task.id)}>Borrar</button>
+      </span>
+    </li>
+  );
+}
 
 export default React.memo(TaskItem);
