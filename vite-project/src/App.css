@@ -1,3 +1,115 @@
+.App-light {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+}
+
+.App-dark {
+  background-color: rgb(4, 4, 4);
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  list-style: none;
+}
+
+/* Modo compacto */
+.taskItem--compact {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.taskItem--compact .task-actions button {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+}
+
+/* Modo detallado */
+.taskItem--detailed {
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.taskItem--detailed .task-content {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.taskItem--detailed .task-details {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.taskItem--detailed .task-actions {
+  align-self: flex-end;
+}
+
+.taskItem--detailed .task-actions button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Estados de tareas */
+.task-completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.task-pending {
+  font-weight: bold;
+}
+
+/* Prioridades */
+.priority--alta {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.priority--media {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+.priority--baja {
+  color: #27ae60;
+  font-weight: bold;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

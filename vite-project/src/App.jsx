@@ -1,6 +1,10 @@
-import { useState, useCallback, useContext } from 'react';
+import { useState, useCallback} from 'react';
 import TaskList from './components/TaskList.jsx';
-import { TaskForm } from './components/TaskForm.jsx';
+import Switch from './components/Switch/switch.jsx';
+import { DisplayModeContext } from './contexts/context.jsx';
+import './App.css';
+
+import TaskForm from './components/TaskForm.jsx';
 
 export default function App() {
   return (
@@ -37,14 +41,45 @@ function AppContent() {
     setTodos(todos.filter(todo => todo.id !== id));
   }, [todos]);
 
+
+  const [displayModeSettings, setDisplayModeSettings] = useState({
+    mode: "light",
+    displayMode: "detailed", // "compact" o "detailed"
+    switchMode: () => {
+      setDisplayModeSettings((prevState) => ({
+        ...prevState,
+        mode: prevState.mode === "light" ? "dark" : "light",
+      }));
+    },
+    toggleDisplayMode: () => {
+      setDisplayModeSettings((prevState) => ({
+        ...prevState,
+        displayMode: prevState.displayMode === "detailed" ? "compact" : "detailed",
+      }));
+    },
+  });
+
   return (
     <div>
-      <TaskForm handleAdd={handleAdd} />
-      <TaskList 
-        todos={todos} 
-        onComplete={handleComplete} 
-        onDelete={handleDelete} 
-      />
+      <DisplayModeContext.Provider value={displayModeSettings}>
+        <div className={"App-" + displayModeSettings.mode}>
+          <header>
+            <h1>Lista de Tareas</h1>
+            <div className="controls">
+              <Switch />
+              <button onClick={displayModeSettings.toggleDisplayMode}>
+                Modo: {displayModeSettings.displayMode === "detailed" ? "Detallado" : "Compacto"}
+              </button>
+            </div>
+          </header>
+          <TaskForm handleAdd={handleAdd} />
+          <TaskList 
+            todos={todos} 
+            onComplete={handleComplete} 
+            onDelete={handleDelete} 
+          />
+        </div>
+      </DisplayModeContext.Provider>
     </div>
   );
 }
