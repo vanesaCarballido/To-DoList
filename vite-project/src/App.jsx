@@ -42,12 +42,19 @@ function AppContent() {
   }, [todos]);
 
 
-  const [displayModeSettings, setThemeSettings] = useState({
+  const [displayModeSettings, setDisplayModeSettings] = useState({
     mode: "light",
+    displayMode: "detailed", // "compact" o "detailed"
     switchMode: () => {
-      setThemeSettings((prevState) => ({
+      setDisplayModeSettings((prevState) => ({
         ...prevState,
         mode: prevState.mode === "light" ? "dark" : "light",
+      }));
+    },
+    toggleDisplayMode: () => {
+      setDisplayModeSettings((prevState) => ({
+        ...prevState,
+        displayMode: prevState.displayMode === "detailed" ? "compact" : "detailed",
       }));
     },
   });
@@ -56,7 +63,15 @@ function AppContent() {
     <div>
       <DisplayModeContext.Provider value={displayModeSettings}>
         <div className={"App-" + displayModeSettings.mode}>
-          <MySwitch />
+          <header>
+            <h1>Lista de Tareas</h1>
+            <div className="controls">
+              <MySwitch />
+              <button onClick={displayModeSettings.toggleDisplayMode}>
+                Modo: {displayModeSettings.displayMode === "detailed" ? "Detallado" : "Compacto"}
+              </button>
+            </div>
+          </header>
           <TaskForm handleAdd={handleAdd} />
           <TaskList 
             todos={todos} 

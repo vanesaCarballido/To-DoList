@@ -22,11 +22,10 @@ function TaskList({ todos, onComplete, onDelete }) {
 
   return (
     <div>
-      <h2>Lista de Tareas</h2>
       <p>Tareas pendientes: {pendingCount}</p>
 
       <button onClick={handleShowHigh}>
-        {showHigh ? "Todos" : "Prioridad alta"}
+        {showHigh ? "Mostrar todas" : "Solo prioridad alta"}
       </button>
 
       <h3>Tareas:</h3>
