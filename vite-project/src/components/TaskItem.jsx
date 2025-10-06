@@ -3,8 +3,8 @@ import { DisplayModeContext } from '../contexts/context.jsx';
 
 function TaskItem({ task, onComplete, onDelete }) {
   const displayModeSettings = useContext(DisplayModeContext);
-  
-  // Modo compacto: solo texto y botones
+  //Se usa el contexto para determinar la visualización de cada tarea (de forma compacta o detallada).
+  // Con el modo compacto, el displayModeSettings muestra solo información sin detalles
   if (displayModeSettings.displayMode === "compact") {
     return (
       <li className="taskItem taskItem--compact">
@@ -19,7 +19,7 @@ function TaskItem({ task, onComplete, onDelete }) {
     );
   }
   
-  // Modo detallado: texto, prioridad, estado y botones
+  // Con el modo detallado, se muestra mas informacion.
   return (
     <li className="taskItem taskItem--detailed">
       <div className="task-content">

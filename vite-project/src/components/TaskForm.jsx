@@ -33,4 +33,4 @@ function TaskForm({ handleAdd }) {
   );
 }
 
-export { TaskForm };
+export default TaskForm;

@@ -18,7 +18,7 @@
   color: white;
 }
 
-/* Header styles */
+
 header {
   width: 100%;
   display: flex;
@@ -34,7 +34,6 @@ header {
   align-items: center;
 }
 
-/* TaskItem styles */
 .taskItem {
   display: flex;
   justify-content: space-between;

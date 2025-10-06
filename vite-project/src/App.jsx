@@ -1,10 +1,10 @@
-import { useState, useCallback, useContext } from 'react';
+import { useState, useCallback} from 'react';
 import TaskList from './components/TaskList.jsx';
-import MySwitch from './components/Switch/switch.jsx';
+import Switch from './components/Switch/switch.jsx';
 import { DisplayModeContext } from './contexts/context.jsx';
 import './App.css';
 
-import { TaskForm } from './components/TaskForm.jsx';
+import TaskForm from './components/TaskForm.jsx';
 
 export default function App() {
   return (
@@ -66,7 +66,7 @@ function AppContent() {
           <header>
             <h1>Lista de Tareas</h1>
             <div className="controls">
-              <MySwitch />
+              <Switch />
               <button onClick={displayModeSettings.toggleDisplayMode}>
                 Modo: {displayModeSettings.displayMode === "detailed" ? "Detallado" : "Compacto"}
               </button>

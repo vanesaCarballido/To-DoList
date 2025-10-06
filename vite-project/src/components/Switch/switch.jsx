@@ -1,8 +1,7 @@
-import React from "react";
 import { useContext } from "react";
 import { DisplayModeContext } from "../../contexts/context.jsx";
 
-const MySwitch = () => {
+const Switch = () => {
   const displayModeSettings = useContext(DisplayModeContext);
 
   return (
@@ -19,4 +18,4 @@ const MySwitch = () => {
   );
 };
 
-export default MySwitch;
+export default Switch;

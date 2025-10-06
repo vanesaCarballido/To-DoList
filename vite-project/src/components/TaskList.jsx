@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import TaskItem from './TaskItem.jsx';
 
 function TaskList({ todos, onComplete, onDelete }) {
