@@ -1,6 +1,6 @@
 import { useState, useCallback} from 'react';
 import TaskList from './components/TaskList.jsx';
-import Switch from './components/Switch/switch.jsx';
+import MySwitch from './components/Switch/switch.jsx';
 import { DisplayModeContext } from './contexts/context.jsx';
 import './App.css';
 
@@ -44,7 +44,7 @@ function AppContent() {
 
   const [displayModeSettings, setDisplayModeSettings] = useState({
     mode: "light",
-    displayMode: "detailed", // "compact" o "detailed"
+    displayMode: "detailed",
     switchMode: () => {
       setDisplayModeSettings((prevState) => ({
         ...prevState,
@@ -66,7 +66,7 @@ function AppContent() {
           <header>
             <h1>Lista de Tareas</h1>
             <div className="controls">
-              <Switch />
+              <MySwitch />
               <button onClick={displayModeSettings.toggleDisplayMode}>
                 Modo: {displayModeSettings.displayMode === "detailed" ? "Detallado" : "Compacto"}
               </button>

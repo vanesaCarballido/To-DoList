@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { DisplayModeContext } from "../../contexts/context.jsx";
+import Switch from "react-switch";
 
-const Switch = () => {
+
+const MySwitch = () => {
   const displayModeSettings = useContext(DisplayModeContext);
 
   return (
     <label>
-      <input
-        type="checkbox"
+      <Switch
         onChange={() => {
           displayModeSettings.switchMode();
         }}
@@ -18,4 +19,4 @@ const Switch = () => {
   );
 };
 
-export default Switch;
+export default MySwitch;
