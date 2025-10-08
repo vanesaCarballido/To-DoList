@@ -1,18 +1,18 @@
 .App-light {
   background-color: white;
-  height: 100vh;
+  width: 100%;
+  padding: 2rem; 
   display: flex;
-  justify-content: start;
   flex-direction: column;
   align-items: center;
   color: black;
 }
 
 .App-dark {
-  background-color: rgb(4, 4, 4);
-  height: 100vh;
+  background-color: rgb(9, 15, 41);
+  width: 100%;
+  padding: 2rem; 
   display: flex;
-  justify-content: start;
   flex-direction: column;
   align-items: center;
   color: white;
@@ -111,10 +111,9 @@ header {
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
