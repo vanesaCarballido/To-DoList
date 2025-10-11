@@ -72,12 +72,14 @@ function AppContent() {
               </button>
             </div>
           </header>
-          <TaskForm handleAdd={handleAdd} />
-          <TaskList 
-            todos={todos} 
-            onComplete={handleComplete} 
-            onDelete={handleDelete} 
-          />
+          <div className='after-header'>
+            <TaskForm handleAdd={handleAdd} />
+            <TaskList 
+              todos={todos} 
+              onComplete={handleComplete} 
+              onDelete={handleDelete} 
+            />
+          </div>
         </div>
       </DisplayModeContext.Provider>
     </div>

@@ -21,7 +21,7 @@ function TaskList({ todos, onComplete, onDelete }) {
   const tasksToShow = showHigh ? highPriorityTasks : todos;
 
   return (
-    <div>
+    <div className = "taskList-container">
       <p>Tareas pendientes: {pendingCount}</p>
 
       <button onClick={handleShowHigh}>
