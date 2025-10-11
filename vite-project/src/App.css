@@ -270,3 +270,7 @@ header {
   color: #27ae60;
   font-weight: bold;
 }
+
+.taskItem--compact .priority--alta, .taskItem--compact .priority--media, .taskItem--compact .priority--baja {
+  font-size: 0.9rem;
+}

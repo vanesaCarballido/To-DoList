@@ -11,6 +11,7 @@ function TaskItem({ task, onComplete, onDelete }) {
         <span className={task.completed ? "task-completed" : "task-pending"}>
           {task.text}
         </span>
+        <span className={`priority--${task.priority}`}>Prioridad: {task.priority}</span>
         <span className="task-actions">
           <button onClick={() => onComplete(task.id)}>{task.completed ? '⟳' : '✓'}</button>
           <button onClick={() => onDelete(task.id)}>✕</button>
