@@ -169,7 +169,6 @@ header {
 }
 
 
-
 .taskItem {
   width: 100%;
   border-color: #ccc;
@@ -188,14 +187,14 @@ header {
 
 /* Modo detallado */
 .taskItem--detailed {
-  padding: 1rem 1.5rem;
+  padding: 2rem 1.5rem;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .taskItem--detailed .task-content {
   width: 100%;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .taskItem--detailed .task-details {
@@ -208,6 +207,7 @@ header {
 .taskItem--detailed .task-actions {
   align-self: flex-end;
 }
+
 /*Botones de las tarjetas en modo detallado*/
 .taskItem--detailed .task-actions button {
   margin-left: 0.5rem;
@@ -220,7 +220,7 @@ header {
 
 /* Modo compacto */
 .taskItem--compact {
-  padding: 0.7rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-size: 1rem;
   font-size: 1rem;
   display: flex;
