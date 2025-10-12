@@ -10,11 +10,19 @@ function TaskForm({ handleAdd }) {
 
   function handleClick(event) {
     event.preventDefault();
-    handleAdd(taskName.current.value, priority);
+    const value = taskName.current.value.trim(); 
+
+    if (value === '') {
+      alert('Por favor, ingrese una tarea');
+      return; 
+    }
+
+    handleAdd(value, priority);
     taskName.current.value = '';
     setPriority('baja');
     taskName.current.focus();
   }
+
 
   return (
     <div className="taskForm">
